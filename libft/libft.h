@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 10:59:58 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 18:04:38 by oohnivch         ###   ########.fr       */
+/*   Created: 2024/04/24 14:43:22 by oohnivch          #+#    #+#             */
+/*   Updated: 2024/04/24 16:43:18 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdarg.h>
+//#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
-#include "libft/libft.h"
-#include <stdio.h>
+size_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int c);
 
-int ft_printf(const char *str, ...);
-int ft_putchar(int c);
-int ft_putstr(char *s);
-int ft_putnbr(int nb);
-int ft_putuint(unsigned int nb);
-int ft_putptr(unsigned long nb);
-int ft_puthex(unsigned long n, const char format);
+#endif // !LIBFT_H
 
-#endif
+

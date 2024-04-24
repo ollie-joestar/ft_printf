@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 10:59:58 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 18:04:38 by oohnivch         ###   ########.fr       */
+/*   Created: 2024/04/24 15:49:42 by oohnivch          #+#    #+#             */
+/*   Updated: 2024/04/24 17:45:00 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include "libft/libft.h"
-#include <stdio.h>
+static int ft_uilen(unsigned int nb)
+{
+    int len;
 
-int ft_printf(const char *str, ...);
-int ft_putchar(int c);
-int ft_putstr(char *s);
-int ft_putnbr(int nb);
-int ft_putuint(unsigned int nb);
-int ft_putptr(unsigned long nb);
-int ft_puthex(unsigned long n, const char format);
+    len = 1;
+    while (nb > 9)
+    {
+        len++;
+        nb /= 10;
+    }
+    return (len);
+}
 
-#endif
+int ft_putuint(unsigned int nb)
+{
+    int len;
+
+    len = ft_uilen(nb);
+    if (nb > 9)
+        ft_putuint(nb / 10);
+    ft_putchar('0' + (nb % 10));
+    return (len);
+}
