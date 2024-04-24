@@ -6,7 +6,7 @@
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:17:15 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 18:00:40 by oohnivch         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:28:46 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int ft_printf(const char *str, ...)
         if(str[i] == '%' && ft_strchr("cspdiuxX%", str[i + 1]))
         {
             len += ft_format(args, str[i + 1]);
+            i++;
         }
+        else
+            len += ft_putchar(str[i]);
         i++;
     }
     va_end(args);
