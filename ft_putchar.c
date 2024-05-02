@@ -6,14 +6,13 @@
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:13:52 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 17:44:12 by oohnivch         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:36:02 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_putchar(int c)
+int	ft_putchar(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	return (write(1, &c, 1));
 }

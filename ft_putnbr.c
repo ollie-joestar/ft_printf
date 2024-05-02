@@ -6,32 +6,32 @@
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:57:07 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 17:44:39 by oohnivch         ###   ########.fr       */
+/*   Updated: 2024/04/25 12:25:22 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int  ft_nbrlen(int n)
+static int	ft_nbrlen(int n)
 {
-    int i;
+	int	i;
 
-    i = 1;
-    if (n < 0)
-        i++;
-    while (n > 9 || n < -9)
-    {
-        i++;
-        n /= 10;
-    }
-    return (i);
+	i = 1;
+	if (n < 0)
+		i++;
+	while (n > 9 || n < -9)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
-int ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
-    int nlen;
+	int	nlen;
 
-    nlen = ft_nbrlen(nb);
+	nlen = ft_nbrlen(nb);
 	if (nb == -2147483648)
 	{
 		ft_putchar('-');
@@ -46,5 +46,5 @@ int ft_putnbr(int nb)
 	if (nb > 9)
 		ft_putnbr(nb / 10);
 	ft_putchar((nb % 10) + '0');
-    return (nlen);
+	return (nlen);
 }

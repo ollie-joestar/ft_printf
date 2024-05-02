@@ -6,7 +6,7 @@
 /*   By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:27:35 by oohnivch          #+#    #+#             */
-/*   Updated: 2024/04/24 17:44:53 by oohnivch         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:21:44 by oohnivch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 /*#include <unistd.h>
 #include "ft_putchar.c"*/
 
-int ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-    size_t  len;
+	size_t	len;
 
-    len = ft_strlen(s);
-    write (1, s, len);
-    return ((int)len);
-} 
+	if (s == NULL)
+		return (ft_putstr("(null)"));
+	len = ft_strlen(s);
+	return ((int)(write (1, s, len)));
+}

@@ -6,7 +6,7 @@
 #    By: oohnivch <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 13:40:55 by oohnivch          #+#    #+#              #
-#    Updated: 2024/04/24 19:08:35 by oohnivch         ###   ########.fr        #
+#    Updated: 2024/04/25 12:30:30 by oohnivch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #									Variables								   #
@@ -62,13 +62,13 @@ $(LIB):
 clean:
 	@make -C $(LIBDIR) clean
 	@rm -f $(OBJ) error.txt
-	@echo "$(YELLOW)Deleting $(words $(OBJ) $(BOBJ)) object file(s) $(NORMAL)"
+	@echo "$(YELLOW)Deleting $(words $(OBJ) error.txt) object file(s) $(NORMAL)"
 	@echo "$(GREEN)Deletion success! $(NORMAL)"
 
 fclean:
 	@make -C $(LIBDIR) fclean
 	@rm -f $(OBJ) $(NAME) error.txt
-	@echo "$(YELLOW)Deleting $(NAME) and $(words $(OBJ)) object file(s) $(NORMAL)" 
+	@echo "$(YELLOW)Deleting $(NAME) and $(words $(OBJ) error.txt) object file(s) $(NORMAL)" 
 	@echo "$(GREEN)Deletion success! $(NORMAL)"
 
 re: fclean all
