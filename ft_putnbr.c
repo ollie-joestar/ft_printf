@@ -29,22 +29,15 @@ static int	ft_nbrlen(int n)
 
 int	ft_putnbr(int nb)
 {
-	int	nlen;
+	int		nlen;
+	long	nbr;
 
 	nlen = ft_nbrlen(nb);
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		nb = 147483648;
-	}
 	if (nb < 0)
-	{
 		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb > 9)
-		ft_putnbr(nb / 10);
-	ft_putchar((nb % 10) + '0');
+	nbr = (long)nb * (1 - 2 * (nb < 0));
+	if (nbr > 9)
+		ft_putnbr(nbr / 10);
+	ft_putchar((nbr % 10) + '0');
 	return (nlen);
 }

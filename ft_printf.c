@@ -11,13 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*#include <unistd.h>
-#include "ft_puthex.c"
-#include "ft_putptr.c"
-#include "ft_putuint.c"
-#include "ft_putchar.c"
-#include "ft_putnbr.c"
-#include "ft_putstr.c"*/
 
 static int	ft_format(va_list args, const char format)
 {
@@ -59,11 +52,14 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && ft_strchr("cspdiuxX%", str[i + 1]))
+		if (str[i] == '%' && str[i + 1] && ft_strchr("cspdiuxX%", str[i + 1]))
 		{
 			len += ft_format(args, str[i + 1]);
 			i++;
 		}
+		else if (str[i] == '%' && \
+			(!ft_strchr("cspdiuxX%", str[i + 1]) || str[i + 1] == '\0'))
+			return (-1);
 		else
 			len += ft_putchar(str[i]);
 		i++;

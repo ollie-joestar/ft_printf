@@ -22,9 +22,6 @@ static int	ft_ptrlen(unsigned long nb)
 		len++;
 		nb /= 16;
 	}
-//	if (len == 15)
-//		len += ft_putchar('0');
-//	else if (len < 15)
 	return (len);
 }
 
