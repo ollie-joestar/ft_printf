@@ -12,30 +12,20 @@
 
 #include "ft_printf.h"
 
-static int	ft_hexlen(unsigned long nb)
-{
-	int	len;
-
-	len = 1;
-	while (nb > 15)
-	{
-		len++;
-		nb /= 16;
-	}
-	return (len);
-}
-
 int	ft_puthex(unsigned long n, const char format)
 {
 	int		len;
+	int		check;
 	char	*base;
 
 	base = "0123456789ABCDEF";
 	if (format == 'x')
 		base = "0123456789abcdef";
-	len = ft_hexlen(n);
+	len = 0;
 	if (n > 15)
-		ft_puthex((n / 16), format);
-	ft_putchar(base[n % 16]);
-	return (len);
+		len += ft_puthex((n / 16), format);
+	check = ft_putchar(base[n % 16]);
+	if (check == -1)
+		return (check);
+	return (len + check);
 }

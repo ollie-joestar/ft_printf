@@ -12,29 +12,19 @@
 
 #include "ft_printf.h"
 
-static int	ft_ptrlen(unsigned long nb)
-{
-	int	len;
-
-	len = 1;
-	while (nb > 15)
-	{
-		len++;
-		nb /= 16;
-	}
-	return (len);
-}
-
 int	ft_putptr(unsigned long nb)
 {
 	int		len;
+	int		check;
 	char	*base;
 
-	len = ft_ptrlen(nb);
+	len = 0;
 	len += ft_putstr("0x");
 	base = "0123456789abcdef";
 	if (nb > 15)
-		ft_puthex((nb / 16), 'x');
-	ft_putchar(base[nb % 16]);
-	return (len);
+		len += ft_puthex((nb / 16), 'x');
+	check = ft_putchar(base[nb % 16]);
+	if (check == -1)
+		return (check);
+	return (len + check);
 }
